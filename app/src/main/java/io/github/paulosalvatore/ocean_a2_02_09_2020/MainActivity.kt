@@ -21,11 +21,7 @@ class MainActivity : AppCompatActivity() {
             val nome = it.getString("NOME")
             val idade = it.getString("IDADE")
 
-            tvResultado.text = String.format(
-                getString(R.string.resultado_nome_idade),
-                nome,
-                idade
-            )
+            atualizarResultado(nome, idade)
         }
 
         fab.setOnClickListener {
@@ -57,12 +53,7 @@ class MainActivity : AppCompatActivity() {
                 }
             } else {
                 // Todos os elementos passaram na validação
-                tvResultado.text = String.format(
-                    getString(R.string.resultado_nome_idade),
-                    etNome.text,
-                    etIdade.text
-                )
-//                tvResultado.text = "Olá ${etNome.text}, você tem ${etIdade.text} anos."
+                atualizarResultado(etNome.text.toString(), etIdade.text.toString())
             }
         }
 
@@ -88,6 +79,16 @@ class MainActivity : AppCompatActivity() {
 //            i.data = Uri.parse(url)
 //            startActivity(i)
         }
+    }
+
+    private fun atualizarResultado(nome: String?, idade: String?) {
+        tvResultado.text = String.format(
+            getString(R.string.resultado_nome_idade),
+            nome,
+            idade
+        )
+
+//        tvResultado.text = "Olá ${etNome.text}, você tem ${etIdade.text} anos."
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
