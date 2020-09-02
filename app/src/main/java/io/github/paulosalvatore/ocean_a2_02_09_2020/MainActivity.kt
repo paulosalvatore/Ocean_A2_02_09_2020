@@ -1,5 +1,6 @@
 package io.github.paulosalvatore.ocean_a2_02_09_2020
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -57,6 +58,11 @@ class MainActivity : AppCompatActivity() {
             tvResultado.text = getString(R.string.resultado)
             etNome.text.clear()
             etIdade.text?.clear()
+        }
+
+        btAbrirPerfil.setOnClickListener {
+            val abrirPerfilIntent = Intent(this, PerfilActivity::class.java)
+            startActivity(abrirPerfilIntent)
         }
     }
 
