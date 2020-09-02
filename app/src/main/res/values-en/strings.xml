@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ocean_A2_02_09_2020</string>
+    <string name="idade">Age</string>
+    <string name="digite_o_seu_nome">Type your name</string>
+    <string name="resultado">Result</string>
+    <string name="atualizar">Update</string>
+    <string name="limpar">Clear</string>
+    <string name="erro_idade">Type a valid age</string>
+    <string name="erro_nome">Type a valid name</string>
+    <string name="resultado_nome_idade">Hello, %1$s, you are %2$s years old.</string>
+</resources>

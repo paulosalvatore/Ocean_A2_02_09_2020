@@ -9,4 +9,12 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="idade">Idade</string>
+    <string name="digite_o_seu_nome">Digite o seu nome</string>
+    <string name="resultado">Resultado</string>
+    <string name="atualizar">Atualizar</string>
+    <string name="limpar">Limpar</string>
+    <string name="erro_idade">Digite uma idade válida</string>
+    <string name="erro_nome">Digite um nome válido</string>
+    <string name="resultado_nome_idade">Olá %1$s, você tem %2$s anos.</string>
 </resources>

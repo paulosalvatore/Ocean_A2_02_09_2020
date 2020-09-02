@@ -1,11 +1,12 @@
 package io.github.paulosalvatore.ocean_a2_02_09_2020
 
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,7 +17,46 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+                .setAction("Action", null).show()
+        }
+
+        // Resolução do desafio
+
+        btAtualizar.setOnClickListener {
+            val nome = etNome.text
+            val idade = etIdade.text
+
+            val nomeVazio = nome.isBlank()
+            val idadeVaziaOuNula = idade?.isBlank() ?: true
+
+            // Checagem de blank (com isBlank()
+            // Validação se não é nulo (Com operador '?')
+            // Elvis operator (?:), que é ativado caso a operação anterior seja nula
+
+            if (nomeVazio || idadeVaziaOuNula) {
+                // Algum dos elementos não passou na validação, pois está vazio ou nulo
+                if (nomeVazio) {
+                    etNome.error = getString(R.string.erro_nome)
+                }
+
+                if (idadeVaziaOuNula) {
+                    etIdade.error = getString(R.string.erro_idade)
+                }
+            } else {
+                // Todos os elementos passaram na validação
+                tvResultado.text = String.format(
+                    getString(R.string.resultado_nome_idade),
+                    etNome.text,
+                    etIdade.text
+                )
+//                tvResultado.text = "Olá ${etNome.text}, você tem ${etIdade.text} anos."
+            }
+        }
+
+        btLimpar.setOnClickListener {
+            tvResultado.text = getString(R.string.resultado)
+            etNome.text.clear()
+            etIdade.text?.clear()
         }
     }
 
