@@ -16,6 +16,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
 
+        // Recuperando dados salvos anteriormente, pelo savedInstanceState, que é um Bundle
+        savedInstanceState?.let {
+            val nome = it.getString("NOME")
+            val idade = it.getString("IDADE")
+
+            tvResultado.text = String.format(
+                getString(R.string.resultado_nome_idade),
+                nome,
+                idade
+            )
+        }
+
         fab.setOnClickListener {
             Snackbar.make(it, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
@@ -76,6 +88,13 @@ class MainActivity : AppCompatActivity() {
 //            i.data = Uri.parse(url)
 //            startActivity(i)
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putString("NOME", etNome.text.toString())
+        outState.putString("IDADE", etIdade.text.toString())
+
+        super.onSaveInstanceState(outState)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
