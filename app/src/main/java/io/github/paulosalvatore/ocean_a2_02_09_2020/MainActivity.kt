@@ -62,6 +62,8 @@ class MainActivity : AppCompatActivity() {
 
         btAbrirPerfil.setOnClickListener {
             val abrirPerfilIntent = Intent(this, PerfilActivity::class.java)
+            abrirPerfilIntent.putExtra("NOME", etNome.text.toString())
+            abrirPerfilIntent.putExtra("IDADE", etIdade.text.toString())
             startActivity(abrirPerfilIntent)
 
             // Exemplo de Intent para enviar SMS
