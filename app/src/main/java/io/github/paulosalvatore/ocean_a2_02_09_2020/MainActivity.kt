@@ -63,6 +63,16 @@ class MainActivity : AppCompatActivity() {
         btAbrirPerfil.setOnClickListener {
             val abrirPerfilIntent = Intent(this, PerfilActivity::class.java)
             startActivity(abrirPerfilIntent)
+
+            // Exemplo de Intent para enviar SMS
+//            val telefone = "12346556"
+//            startActivity(Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", telefone, null)))
+
+            // Exemplo para abrir página da web
+//            val url = "https://oceanbrasil.com"
+//            val i = Intent(Intent.ACTION_VIEW)
+//            i.data = Uri.parse(url)
+//            startActivity(i)
         }
     }
 
